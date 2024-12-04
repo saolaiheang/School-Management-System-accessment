@@ -2,8 +2,10 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import classRoute from "./routes/classRoute.js";
-import dotenv from "dotenv";
+import routerStud from "./routes/studentRoute.js";
+import routeUser from "./routes/userRoute.js";
 
+import dotenv from "dotenv";
 // Initialize dotenv to load environment variables
 dotenv.config();
 
@@ -28,6 +30,8 @@ app.get("/", (req, res) => {
 
 
 app.use("/api/class", classRoute);
+app.use("/api/student",routerStud);
+app.use("/api/user",routeUser);
 
 //connectDB
 connectDB();
